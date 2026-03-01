@@ -311,3 +311,7 @@ If you iterate further, the recommended pattern is: - keep
 `v2_suite_50.jsonl` frozen, - add new checks/scenarios to base +
 expanded files, - cut a new frozen suite when you want a new benchmark
 version.
+
+## License
+
+MIT
