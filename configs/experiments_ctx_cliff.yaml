@@ -1,0 +1,46 @@
+# V2 Experiments: Context Cliff (dedicated config)
+# Runs ONLY the context-cliff MCS suite (PIN recall + filler) under a ctx sweep.
+
+run:
+  run_name: v2_experiments_ctx_cliff
+  scenarios_path: data/v2_ctx_cliff_suite_20.jsonl
+  output_dir: results/v2/runs
+  shuffle: true
+  seed: 123
+  limit_scenarios: null
+  limit_turns_per_scenario: null
+
+profiles_config: configs/run_config.yaml
+
+defaults:
+  host: http://localhost:11434
+  options:
+    temperature: 0.0
+    num_predict: 256
+    num_ctx: 2048
+
+experiments:
+  context_cliff_qwen14b:
+    family: context_cliff
+    description: "Fixed model (qwen_14b_t0), sweep num_ctx to find boundary cliff."
+    cells:
+      - cell_id: qwen14b_ctx_1k
+        profile: qwen_14b_t0
+        overrides:
+          options: { num_ctx: 1024 }
+      - cell_id: qwen14b_ctx_2k
+        profile: qwen_14b_t0
+        overrides:
+          options: { num_ctx: 2048 }
+      - cell_id: qwen14b_ctx_4k
+        profile: qwen_14b_t0
+        overrides:
+          options: { num_ctx: 4096 }
+      - cell_id: qwen14b_ctx_6k
+        profile: qwen_14b_t0
+        overrides:
+          options: { num_ctx: 6144 }
+      - cell_id: qwen14b_ctx_8k
+        profile: qwen_14b_t0
+        overrides:
+          options: { num_ctx: 8192 }

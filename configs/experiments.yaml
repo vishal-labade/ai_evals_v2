@@ -1,0 +1,135 @@
+# V2 Experiments Track (V2.1)
+# This file defines experiment "families" that rerun the SAME frozen behavioral suite
+# under controlled variations (num_ctx, model size, tradeoff).
+
+run:
+  run_name: v2_experiments
+  scenarios_path: data/v2_suite_50.jsonl
+  output_dir: results/v2/runs
+  shuffle: true
+  seed: 123
+  limit_scenarios: null        # set to e.g. 10 for smoke
+  limit_turns_per_scenario: null
+
+# Where to read model profiles from (same structure as your configs/run_config.yaml)
+profiles_config: configs/run_config.yaml
+
+# Global defaults (can be overridden per cell)
+defaults:
+  host: http://localhost:11434
+  options:
+    temperature: 0.0
+    num_predict: 256
+    num_ctx: 2048
+
+experiments:
+  # Family 1: Fixed model, sweep context to show boundary cliff
+  # This is now handled in context sweep experiment separately. YAML: experiments_ctx_cliff.yaml.
+  # context_cliff_qwen14b:
+  #   family: context_cliff
+  #   description: "Fixed model (qwen_14b_t0), sweep num_ctx to find boundary cliff."
+  #   cells:
+  #     - cell_id: qwen14b_ctx_1k
+  #       profile: qwen_14b_t0
+  #       overrides:
+  #         options: { num_ctx: 1024 }
+  #     - cell_id: qwen14b_ctx_2k
+  #       profile: qwen_14b_t0
+  #       overrides:
+  #         options: { num_ctx: 2048 }
+  #     - cell_id: qwen14b_ctx_4k
+  #       profile: qwen_14b_t0
+  #       overrides:
+  #         options: { num_ctx: 4096 }
+  #     - cell_id: qwen14b_ctx_6k
+  #       profile: qwen_14b_t0
+  #       overrides:
+  #         options: { num_ctx: 6144 }
+  #     - cell_id: qwen14b_ctx_8k
+  #       profile: qwen_14b_t0
+  #       overrides:
+  #         options: { num_ctx: 8192 }
+
+  # Family 2: Fixed context, compare small vs large model (3B vs 20B)
+  fixed_ctx_model_size:
+    family: model_size_fixed_ctx
+    description: "Fixed num_ctx=2048, compare 3B vs 20B (and optionally mid models)."
+    cells:
+      - cell_id: phi3mini_ctx_2k
+        profile: phi_mini_t0
+        overrides:
+          options: { num_ctx: 2048 }
+      - cell_id: qwen3b_ctx_2k
+        profile: qwen_3b_t0
+        overrides:
+          options: { num_ctx: 2048 }
+      - cell_id: qwen14b_ctx_2k
+        profile: qwen_14b_t0
+        overrides:
+          options: { num_ctx: 2048 }
+      - cell_id: gpt20b_ctx_2k
+        profile: gpt_20b_t0
+        overrides:
+          options: { num_ctx: 2048 }
+
+  # Family 3: Tradeoff study: medium model long ctx vs larger model short ctx
+  tradeoff_ctx_vs_size:
+    family: tradeoff
+    description: "14B @ ~6K vs 20B @ 2K tradeoff."
+    cells:
+      - cell_id: qwen3b_ctx_6k
+        profile: qwen_3b_t0
+        overrides:
+          options: { num_ctx: 6144 }
+      - cell_id: gpt20b_ctx_2k
+        profile: gpt_20b_t0
+        overrides:
+          options: { num_ctx: 2048 }
+
+  # Optional: MoE comparison at fixed ctx
+  moe_fixed_ctx:
+    family: moe_compare
+    description: "Compare Mixtral MoE vs dense models at fixed context."
+    cells:
+      - cell_id: mixtral8x7b_ctx_2k
+        profile: mixtral_moe_7b_t0
+        overrides:
+          options: { num_ctx: 2048 }
+      # - cell_id: mistral12b_ctx_2k
+      #   profile: mistral_12b_t0
+      #   overrides:
+      #     options: { num_ctx: 2048 }
+      - cell_id: gemma9b_ctx_2k
+        profile: gemma_9b_t0
+        overrides:
+          options: { num_ctx: 2048 }
+      # Family 5: Behavioral baseline (frozen suite)
+
+  behavioral_baseline:
+    family: behavioral
+    description: "Baseline behavioral suite across representative models (num_ctx=2048)."
+    cells:
+      - cell_id: behavioral_qwen3b_2k
+        profile: qwen_3b_t0
+        overrides:
+          options: { num_ctx: 2048 }
+
+      - cell_id: behavioral_qwen14b_2k
+        profile: qwen_14b_t0
+        overrides:
+          options: { num_ctx: 2048 }
+
+      - cell_id: behavioral_gpt20b_2k
+        profile: gpt_20b_t0
+        overrides:
+          options: { num_ctx: 2048 }
+      
+      - cell_id: behavioral_gemma9b_2k
+        profile: gemma_9b_t0
+        overrides:
+          options: { num_ctx: 2048 }
+      
+      - cell_id: behavioral_phi3mini_2k
+        profile: phi_mini_t0
+        overrides:
+          options: { num_ctx: 2048 }

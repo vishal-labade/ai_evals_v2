@@ -1,0 +1,6 @@
+run_id,mcs,drop_turn_mean,mcs_auc,mcs_n,cell_id,profile,model,family,host,num_ctx,temperature,num_predict,run_file
+v2_experiments_ctx_cliff_20260228_064345_qwen_14b_t0_qwen2_5_14b_d09c02f1,0.3333,7.0,0.7,60,qwen14b_ctx_1k,qwen_14b_t0,qwen2.5:14b,,http://localhost:11434,1024,0.0,256,v2_experiments_ctx_cliff_20260228_064345_qwen_14b_t0_qwen2_5_14b_d09c02f1.jsonl
+v2_experiments_ctx_cliff_20260228_065058_qwen_14b_t0_qwen2_5_14b_73f8022b,0.3333,7.0,0.7,60,qwen14b_ctx_2k,qwen_14b_t0,qwen2.5:14b,,http://localhost:11434,2048,0.0,256,v2_experiments_ctx_cliff_20260228_065058_qwen_14b_t0_qwen2_5_14b_73f8022b.jsonl
+v2_experiments_ctx_cliff_20260228_070011_qwen_14b_t0_qwen2_5_14b_9df16595,1.0,,1.0,60,qwen14b_ctx_4k,qwen_14b_t0,qwen2.5:14b,,http://localhost:11434,4096,0.0,256,v2_experiments_ctx_cliff_20260228_070011_qwen_14b_t0_qwen2_5_14b_9df16595.jsonl
+v2_experiments_ctx_cliff_20260228_070708_qwen_14b_t0_qwen2_5_14b_15f38404,1.0,,1.0,60,qwen14b_ctx_6k,qwen_14b_t0,qwen2.5:14b,,http://localhost:11434,6144,0.0,256,v2_experiments_ctx_cliff_20260228_070708_qwen_14b_t0_qwen2_5_14b_15f38404.jsonl
+v2_experiments_ctx_cliff_20260228_071405_qwen_14b_t0_qwen2_5_14b_86afdb5d,1.0,,1.0,60,qwen14b_ctx_8k,qwen_14b_t0,qwen2.5:14b,,http://localhost:11434,8192,0.0,256,v2_experiments_ctx_cliff_20260228_071405_qwen_14b_t0_qwen2_5_14b_86afdb5d.jsonl

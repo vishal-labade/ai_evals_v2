@@ -1,0 +1,22 @@
+# Keyed by base_prompt_id (your v1_0001 etc.)
+# For prompts that can be safely numerically perturbed.
+
+specs:
+  v1_0012:
+    variables:
+      revenue_m: 120
+      cost_m: 80
+      year: 2024
+    templates:
+      context: "In {{year}}, revenue was {{revenue_m}} million and cost was {{cost_m}} million."
+      prompt: "Compute profit (revenue - cost). Return JSON: {\"profit_m\": <number>}."
+      ground_truth: "{\"profit_m\": {{revenue_m - cost_m}}}"
+    variants:
+      - name: "shift_small"
+        ops:
+          revenue_m: { add: 5 }
+          cost_m: { add: 2 }
+      - name: "scale_up"
+        ops:
+          revenue_m: { mul: 1.1, round: 0 }
+          cost_m: { mul: 1.05, round: 0 }

@@ -1,0 +1,40 @@
+{
+  "models": {
+    "qwen2.5:3b": {
+      "bri": 0.5545,
+      "persona_pss": 0.3333,
+      "memory_score": 1.0,
+      "consistency_score": 0.7647
+    },
+    "qwen2.5:14b": {
+      "bri": 0.6042,
+      "persona_pss": 0.4298,
+      "memory_score": 1.0,
+      "consistency_score": 0.75
+    },
+    "gpt-oss-safeguard:20b": {
+      "bri": 0.5962,
+      "persona_pss": 0.3553,
+      "memory_score": 1.0,
+      "consistency_score": 0.8382
+    },
+    "gemma2:9b-instruct-q4_K_M": {
+      "bri": 0.6098,
+      "persona_pss": 0.3596,
+      "memory_score": 1.0,
+      "consistency_score": 0.8603
+    },
+    "phi3:mini": {
+      "bri": 0.609,
+      "persona_pss": 0.3903,
+      "memory_score": 1.0,
+      "consistency_score": 0.8971
+    },
+    "mixtral:8x7b": {
+      "bri": 0.6042,
+      "persona_pss": 0.3377,
+      "memory_score": 1.0,
+      "consistency_score": 0.9118
+    }
+  }
+}

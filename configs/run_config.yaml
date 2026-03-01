@@ -1,0 +1,114 @@
+# ============================================================
+# V2 Behavioral Lane Run Config
+# Only models defined here will be executed.
+# Comment / uncomment profiles to control which models run.
+# ============================================================
+
+run:
+  run_name: v2_behavioral
+  output_dir: results/v2/runs
+  limit: null          # set to 10 for smoke test
+  shuffle: true
+  seed: 123
+
+# ============================================================
+# MODEL PROFILES
+# Keep ONLY the models you want to execute.
+# ============================================================
+
+# -------- Large --------
+qwen_14b_t0:
+  host: http://localhost:11434
+  model: qwen2.5:14b
+  options:
+    temperature: 0.0
+    num_predict: 256
+    num_ctx: 2048
+
+mistral_12b_t0:
+  host: http://localhost:11434
+  model: mistral-nemo:12b-instruct-2407-q4_K_M
+  options:
+    temperature: 0.0
+    num_predict: 256
+    num_ctx: 2048
+
+# -------- MoE --------
+mixtral_moe_7b_t0:
+  host: http://localhost:11434
+  model: mixtral:8x7b
+  options:
+    temperature: 0.0
+    num_predict: 256
+    num_ctx: 2048
+
+# -------- 20B --------
+gpt_20b_t0:
+  host: http://localhost:11434
+  model: gpt-oss-safeguard:20b
+  options:
+    temperature: 0.0
+    num_predict: 256
+    num_ctx: 2048
+
+# -------- Mid --------
+
+
+gemma_9b_t0:
+  host: http://localhost:11434
+  model: gemma2:9b-instruct-q4_K_M
+  options:
+    temperature: 0.2
+    num_predict: 256
+    num_ctx: 2048
+
+llama_8b_t0:
+  host: http://localhost:11434
+  model: llama3:8b-instruct-q4_0
+  options:
+    temperature: 0.2
+    num_predict: 256
+    num_ctx: 2048
+
+# -------- Small --------
+qwen_3b_t0:
+  host: http://localhost:11434
+  model: qwen2.5:3b
+  options:
+    temperature: 0.0
+    num_predict: 256
+    num_ctx: 2048
+
+phi_mini_t0:
+  host: http://localhost:11434
+  model: phi3:mini
+  options:
+    temperature: 0.0
+    num_predict: 256
+    num_ctx: 2048
+
+qwen_3b:
+  host: http://localhost:11434
+  model: qwen2.5:3b
+  options:
+    temperature: 0.2
+    num_predict: 256
+    num_ctx: 2048
+
+phi_mini:
+  host: http://localhost:11434
+  model: phi3:mini
+  options:
+    temperature: 0.2
+    num_predict: 256
+    num_ctx: 2048
+
+# ============================================================
+# Input Format (if required by your runner)
+# ============================================================
+
+input_format:
+  template: "CONTEXT:\n{context}\n\nINSTRUCTION:\n{prompt}\n"
+
+prompts:
+  path: data/v2_suite_50.jsonl

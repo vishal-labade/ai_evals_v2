@@ -1,0 +1,14 @@
+run_id,mcs,drop_turn_mean,mcs_auc,mcs_n
+v2_experiments_20260228_042033_qwen_3b_t0_qwen2_5_3b_6ba6cf28,1.0,,1.0,14
+v2_experiments_20260228_042224_qwen_14b_t0_qwen2_5_14b_fe15cab1,1.0,,1.0,14
+v2_experiments_20260228_043252_gpt_20b_t0_gpt_oss_safeguard_20b_e7d20fb6,0.9286,2.0,0.9762,14
+v2_experiments_20260228_043819_gemma_9b_t0_gemma2_9b_instruct_q4_k_m_72274063,0.9286,2.0,0.9762,14
+v2_experiments_20260228_044502_phi_mini_t0_phi3_mini_8b2b618d,0.7857,2.0,0.9286,14
+v2_experiments_20260228_050653_phi_mini_t0_phi3_mini_dca387e5,0.7857,2.0,0.9286,14
+v2_experiments_20260228_050942_qwen_3b_t0_qwen2_5_3b_1ae8f07e,1.0,,1.0,14
+v2_experiments_20260228_051134_qwen_14b_t0_qwen2_5_14b_323dc3a7,1.0,,1.0,14
+v2_experiments_20260228_052155_gpt_20b_t0_gpt_oss_safeguard_20b_305fffaf,0.9286,2.0,0.9762,14
+v2_experiments_20260228_053003_qwen_3b_t0_qwen2_5_3b_1f9eb7d0,1.0,,1.0,14
+v2_experiments_20260228_053154_gpt_20b_t0_gpt_oss_safeguard_20b_ce7c5e12,0.9286,2.0,0.9762,14
+v2_experiments_20260228_061055_mixtral_moe_7b_t0_mixtral_8x7b_18e6bda8,0.8571,2.0,0.9524,14
+v2_experiments_20260228_063133_gemma_9b_t0_gemma2_9b_instruct_q4_k_m_26db8441,0.9286,2.0,0.9762,14

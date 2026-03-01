@@ -1,0 +1,146 @@
+run:
+  run_name: dev_rog_smoke
+  output_dir: results/runs
+  limit: null            # run first 50 prompts for dev
+  shuffle: true
+  seed: 123
+
+phi_mini:
+  host: http://localhost:11434
+  model: phi3:mini     # swap to your preferred 3B model
+  options:
+    temperature: 0.2
+    num_predict: 256
+    num_ctx: 2048
+
+phi_mini_t0:
+  host: http://localhost:11434
+  model: phi3:mini     # swap to your preferred 3B model
+  options:
+    temperature: 0.0
+    num_predict: 256
+    num_ctx: 2048
+
+qwen_3b:
+  host: http://localhost:11434
+  model: qwen2.5:3b    # swap to your preferred 3B model
+  options:
+    temperature: 0.2
+    num_predict: 256
+    num_ctx: 2048
+
+qwen_3b_t0:
+  host: http://localhost:11434
+  model: qwen2.5:3b    # swap to your preferred 3B model
+  options:
+    temperature: 0.0
+    num_predict: 256
+    num_ctx: 2048
+
+qwen_14b:
+  host: http://localhost:11434
+  model: qwen2.5:14b    # swap to your preferred 3B model
+  options:
+    temperature: 0.2
+    num_predict: 256
+    num_ctx: 2048
+
+qwen_14b_t0:
+  host: http://localhost:11434
+  model: qwen2.5:14b    # swap to your preferred 3B model
+  options:
+    temperature: 0.0
+    num_predict: 256
+    num_ctx: 2048
+  
+
+
+gemma_9b_t0:
+  host: http://localhost:11434
+  model: gemma2:9b-instruct-q4_K_M    # swap to your preferred 3B model
+  options:
+    temperature: 0.0
+    num_predict: 256
+    num_ctx: 2048
+
+mistral_12b_t0:
+  host: http://localhost:11434
+  model: mistral-nemo:12b-instruct-2407-q4_K_M    # swap to your preferred 3B model
+  options:
+    temperature: 0.0
+    num_predict: 256
+    num_ctx: 2048
+
+llama_8b_t0:
+  host: http://localhost:11434
+  model: llama3:8b-instruct-q4_0    # swap to your preferred 3B model
+  options:
+    temperature: 0.0
+    num_predict: 256
+    num_ctx: 2048
+
+gpt_20b_t0:
+  host: http://localhost:11434
+  model: gpt-oss-safeguard:20b    # swap to your preferred 3B model
+  options:
+    temperature: 0.0
+    num_predict: 256
+    num_ctx: 2048
+
+mixtral_moe_7b_t0:
+  host: http://localhost:11434
+  model: mixtral:8x7b    # swap to your preferred 3B model
+  options:
+    temperature: 0.0
+    num_predict: 256
+    num_ctx: 2048
+
+# Temp 0.2
+gemma_9b:
+  host: http://localhost:11434
+  model: gemma2:9b-instruct-q4_K_M    # swap to your preferred 3B model
+  options:
+    temperature: 0.2
+    num_predict: 256
+    num_ctx: 2048
+
+mistral_12b:
+  host: http://localhost:11434
+  model: mistral-nemo:12b-instruct-2407-q4_K_M    # swap to your preferred 3B model
+  options:
+    temperature: 0.2
+    num_predict: 256
+    num_ctx: 2048
+
+llama_8b:
+  host: http://localhost:11434
+  model: llama3:8b-instruct-q4_0    # swap to your preferred 3B model
+  options:
+    temperature: 0.2
+    num_predict: 256
+    num_ctx: 2048
+
+gpt_20b:
+  host: http://localhost:11434
+  model: gpt-oss-safeguard:20b    # swap to your preferred 3B model
+  options:
+    temperature: 0.2
+    num_predict: 256
+    num_ctx: 2048
+
+
+mixtral_moe_7b:
+  host: http://localhost:11434
+  model: mixtral:8x7b    # swap to your preferred 3B model
+  options:
+    temperature: 0.2
+    num_predict: 256
+    num_ctx: 2048
+
+
+
+input_format:
+  template: "CONTEXT:\n{context}\n\nINSTRUCTION:\n{prompt}\n"
+
+prompts:
+  path: data/prompts/v1_suite_big.jsonl

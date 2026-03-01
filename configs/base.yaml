@@ -1,0 +1,71 @@
+run:
+  run_name: prod_base_full
+  output_dir: results/runs
+  limit: null          # run all prompts
+  shuffle: false
+  seed: 999
+
+# ollama:
+#   host: http://localhost:11434
+#   model: qwen2.5:14b   # example; set to your chosen 13B/14B/34B
+#   options:
+#     temperature: 0.2
+#     num_predict: 256
+#     num_ctx: 4096      # raise if you want, but keep consistent across comparisons
+
+# input_format:
+#   template: "CONTEXT:\n{context}\n\nINSTRUCTION:\n{prompt}\n"
+
+phi_mini:
+  host: http://localhost:11434
+  model: phi3:mini     # swap to your preferred 3B model
+  options:
+    temperature: 0.2
+    num_predict: 256
+    num_ctx: 2048
+
+phi_mini_t0:
+  host: http://localhost:11434
+  model: phi3:mini     # swap to your preferred 3B model
+  options:
+    temperature: 0.0
+    num_predict: 256
+    num_ctx: 2048
+
+qwen_3b:
+  host: http://localhost:11434
+  model: qwen2.5:3b    # swap to your preferred 3B model
+  options:
+    temperature: 0.2
+    num_predict: 256
+    num_ctx: 2048
+
+qwen_3b_t0:
+  host: http://localhost:11434
+  model: qwen2.5:3b    # swap to your preferred 3B model
+  options:
+    temperature: 0.0
+    num_predict: 256
+    num_ctx: 2048
+
+qwen_14b:
+  host: http://localhost:11434
+  model: qwen2.5:14b    # swap to your preferred 3B model
+  options:
+    temperature: 0.2
+    num_predict: 256
+    num_ctx: 2048
+
+qwen_14b_t0:
+  host: http://localhost:11434
+  model: qwen2.5:14b    # swap to your preferred 3B model
+  options:
+    temperature: 0.0
+    num_predict: 256
+    num_ctx: 2048
+
+input_format:
+  template: "CONTEXT:\n{context}\n\nINSTRUCTION:\n{prompt}\n"
+
+prompts:
+  path: data/prompts/v1_suite.jsonl

@@ -1,0 +1,43 @@
+  behavioral_baseline:
+    family: behavioral
+    description: "Frozen behavioral suite baseline across core model profiles (num_ctx=2048 unless overridden)."
+    cells:
+      - cell_id: behavioral_phi3mini_2k
+        profile: phi_mini_t0
+        overrides:
+          options: { num_ctx: 2048 }
+
+      - cell_id: behavioral_qwen3b_2k
+        profile: qwen_3b_t0
+        overrides:
+          options: { num_ctx: 2048 }
+
+      - cell_id: behavioral_gemma9b_2k
+        profile: gemma_9b_t0
+        overrides:
+          options: { num_ctx: 2048 }
+
+      - cell_id: behavioral_llama8b_2k
+        profile: llama_8b_t0
+        overrides:
+          options: { num_ctx: 2048 }
+
+      - cell_id: behavioral_gpt20b_2k
+        profile: gpt_20b_t0
+        overrides:
+          options: { num_ctx: 2048 }
+
+      - cell_id: behavioral_mixtral8x7b_2k
+        profile: mixtral_moe_7b_t0
+        overrides:
+          options: { num_ctx: 2048 }
+
+      - cell_id: behavioral_qwen14b_2k
+        profile: qwen_14b_t0
+        overrides:
+          options: { num_ctx: 2048 }
+
+      - cell_id: behavioral_mistral12b_2k
+        profile: mistral_12b_t0
+        overrides:
+          options: { num_ctx: 2048 }

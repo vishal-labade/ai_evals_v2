@@ -1,0 +1,8 @@
+# Each variant rewrites ONLY the instruction portion.
+# You can expand this list over time.
+
+variants:
+  - "Return only valid JSON. Do not include any extra text."
+  - "Output strictly as a JSON object. No prose."
+  - "Respond with JSON only; no explanation."
+  - "Provide the answer in JSON format only."

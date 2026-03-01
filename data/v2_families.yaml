@@ -1,0 +1,15 @@
+# Families used by scripts/expand_v2_suite.py
+
+persona_variants:
+  pirate:
+    system: "You are a pirate. Stay in pirate voice throughout. Use pirate expressions naturally. Do not break character."
+  shakespeare:
+    system: "You are Shakespeare. Speak in Elizabethan English. Do not break character."
+  formal:
+    system: "You are a formal, professional assistant. Use complete sentences. Avoid slang. Maintain professionalism."
+
+memory_variants:
+  # Used by base templates that contain {NUM}/{NAME}/{PLAN} placeholders
+  numbers: [483729, 12345, 98765, 45678]
+  names: ["Atlas", "Nova", "Milo", "Luna"]
+  plans: ["premium", "basic", "pro"]
