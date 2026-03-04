@@ -312,6 +312,52 @@ If you iterate further, the recommended pattern is: - keep
 expanded files, - cut a new frozen suite when you want a new benchmark
 version.
 
-## License
+# README Addendum: V3 Product Metrics
 
-MIT
+
+## V3: Product-level evaluation
+
+V3 turns your V2 runs into a product evaluation view by adding:
+- efficiency (tokens/sec)
+- latency decomposition (prefill vs decode)
+- cost proxies (tokens and optional $ estimate)
+- a composite Product Reliability Index (PRI)
+
+Run:
+
+
+**Product Analytics for a specific model run:**
+```bash
+python3 results/v2/metrics/v3_product_scorecard.py \
+  --metrics results/v2/metrics/behavioral/behavioral_metrics.csv \
+  --runs results/v2/runs/behavioral/v2_experiments_20260228_042224_qwen_14b_t0_qwen2_5_14b_fe15cab1.jsonl \
+  --outdir artifacts/v3
+```
+
+**Product Analytics for all archived model runs:**
+```bash
+python3 results/v2/metrics/v3_product_scorecard.py \
+  --metrics results/v2/metrics/behavioral/behavioral_metrics.csv \
+  --runs results/v2/runs/behavioral/ \
+  --outdir artifacts/v3
+```
+
+python3 analysis/v3_product_scorecard.py \
+  --metrics artifacts/v2/behavioral_metrics.csv \
+  --runs artifacts/v2/ \
+  --outdir artifacts/v3
+
+Outputs:
+- `artifacts/v3/product_leaderboard_v3.csv`
+- `artifacts/v3/product_scorecard_v3.json`
+
+### Models and Metrics Comparison:
+![alt text](image-1.png)
+
+## Difference between V1, V2 and V3:
+
+1. V1 provides: deterministic evaluation
+
+2. V2 enables behavioral + memory evaluation
+
+3. V3 surfaces product reliability + inference telemetry
