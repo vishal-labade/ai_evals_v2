@@ -47,7 +47,7 @@ V3 additionally reports:
 - `decode_tps` (generation tokens/sec)
 - `prefill_time_share` (context tax share of total time)
 
-This makes your evaluation *look and feel like production inference profiling*.
+This makes evaluation *look and feel like production inference profiling*.
 
 ## How to run
 
@@ -61,9 +61,6 @@ python3 analysis/v3_product_scorecard.py \
   --price-per-1k-tokens-usd 0
 ```
 
-If you want a cost estimate, set `--price-per-1k-tokens-usd` to a constant.
-(For local inference this is optional; relative efficiency is often enough.)
-
 ## PRI definition (default)
 
 ```
@@ -74,13 +71,3 @@ PRI =
 +0.15 * (1 - contradiction_rate)
 +0.10 * bri
 ```
-
-All terms are in 0..1 in your pipeline (conservative defaults if missing).
-
-## Suggested README snippet
-
-Add:
-
-- "V3: Product Metrics" section
-- Link to `docs/V3_PRODUCT_EVAL.md`
-- Show a tiny excerpt of `product_scorecard_v3.json` (top-3 only)

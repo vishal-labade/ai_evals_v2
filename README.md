@@ -307,17 +307,13 @@ That separation makes conclusions defensible: - Behavioral scores
 reflect instruction/consistency/persona behavior. - Ctx cliff metrics
 isolate memory failure caused by limited context length.
 
-If you iterate further, the recommended pattern is: - keep
-`v2_suite_50.jsonl` frozen, - add new checks/scenarios to base +
-expanded files, - cut a new frozen suite when you want a new benchmark
-version.
 
 # README Addendum: V3 Product Metrics
 
 
 ## V3: Product-level evaluation
 
-V3 turns your V2 runs into a product evaluation view by adding:
+V3 turns V2 runs into a product evaluation view by adding:
 - efficiency (tokens/sec)
 - latency decomposition (prefill vs decode)
 - cost proxies (tokens and optional $ estimate)
